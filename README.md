@@ -1,4 +1,4 @@
-# ✿ TermKaiwa – Terminal Chat Application
+# ✿ TermKaiwa – GUI Chat Application 💕
 
 ## Course Information
 
@@ -8,70 +8,70 @@ Semester: Spring 2026
 
 ---
 
-## Overview
+## Overview 🌸
 
-TermKaiwa is a terminal-based chat application built using Python’s Socket API (TCP).
+TermKaiwa is a GUI-based chat application built using Python’s Socket API (TCP) with a light pink theme.
 It allows multiple users to connect to a server and communicate in real time.
 
 The system follows a client-server architecture and supports:
 
-- Group chat
-- Direct messaging
-- Secret room with a shared password
-- Username change
-- Mute specific users locally
+- Group chat 💬
+- Direct messaging 💌
+- Secret room with a shared password 🔒
+- Username change ✨
+- Mute specific users locally 🤫
 
 ---
 
-## Features
+## Features ✨
 
-- Multiple clients can connect simultaneously
-- Real-time group chat
-- Private messaging using `/dm`
-- Username system (prevents duplicates)
-- Username change using `/rename`
-- Join/leave notifications
-- Online user list (`/users`)
-- Secret room with password (`/secret`, `/secret_leave`)
-- Client-side mute (`/mute`, `/unmute`)
-- Command system (`/help`, `/quit`)
-- Colored terminal UI using `rich`
+- Multiple clients can connect simultaneously 👥
+- Real-time group chat 💬
+- Private messaging using `/dm` 💌
+- Username system (prevents duplicates) 🏷️
+- Username change using `/rename` 🔄
+- Join/leave notifications 🔔
+- Online user list (`/users`) 👀
+- Secret room with password (`/secret`, `/secret_leave`) 🔐
+- Client-side mute (`/mute`, `/unmute`) 🤐
+- Command system (`/help`, `/quit`) ❓
+- Graphical User Interface using tkinter 🖥️
 
 ---
 
-## Commands
+## Commands 📋
 
 | Command                    | Description              |
 | -------------------------- | ------------------------ |
-| `/users`                   | Show all online users    |
-| `/rename <username>`       | Change your username     |
-| `/dm <username> <message>` | Send a private message   |
-| `/secret <password>`       | Enter the secret room    |
-| `/secret_leave`            | Leave the secret room    |
-| `/mute <username>`         | Mute a user's messages   |
-| `/unmute <username>`       | Unmute a user's messages |
-| `/help`                    | Show available commands  |
-| `/quit`                    | Leave the chat           |
+| `/users`                   | Show all online users 👥 |
+| `/rename <username>`       | Change your username 🔄  |
+| `/dm <username> <message>` | Send a private message 💌 |
+| `/secret <password>`       | Enter the secret room 🔒 |
+| `/secret_leave`            | Leave the secret room 🚪 |
+| `/mute <username>`         | Mute a user's messages 🤫 |
+| `/unmute <username>`       | Unmute a user's messages 🔊 |
+| `/help`                    | Show available commands ❓ |
+| `/quit`                    | Leave the chat 👋       |
 
 ---
 
-## Technologies Used
+## Technologies Used 🛠️
 
-- Python 3
-- Socket API (TCP)
-- Threading (for handling multiple clients concurrently)
-- rich (for terminal UI design)
-
----
-
-## Prerequisites
-
-- Python 3.10 or higher
-- pip installed
+- Python 3 🐍
+- Socket API (TCP) 🔌
+- Threading (for handling multiple clients concurrently) 🧵
+- tkinter (for GUI) 🖼️
 
 ---
 
-## Installation
+## Prerequisites 📋
+
+- Python 3.10 or higher 🐍
+- pip installed 📦
+
+---
+
+## Installation 🚀
 
 ### Clone the repository
 
@@ -88,7 +88,7 @@ pip install -r requirements.txt
 
 ---
 
-## Step-by-Step Run Guide
+## Step-by-Step Run Guide 📖
 
 ### Start the server
 
@@ -110,7 +110,7 @@ You can open multiple terminals to simulate multiple users.
 
 ---
 
-## Example Usage
+## Example Usage 🌟
 
 1. Start the server
 2. Connect multiple clients
@@ -131,7 +131,7 @@ hello everyone
 
 ---
 
-## System Limitations & Design Considerations
+## System Limitations & Design Considerations ⚠️
 
 ### Handling Multiple Clients
 
@@ -177,13 +177,13 @@ This application is not secure for sensitive communication.
 
 ---
 
-## Video Demo
+## Video Demo 🎥
 
 (Add your video link here)
 
 ---
 
-## Repository Structure
+## Repository Structure 📁
 
 ```text
 TERMKAIWA/
@@ -196,22 +196,22 @@ TERMKAIWA/
 
 ---
 
-## Team Members
+## Team Members 👫
 
 - Fuka Nagata (301608021)
 - Narihiro Okada (301462533)
 
 ---
 
-## Academic Integrity & References
+## Academic Integrity & References 📚
 
-### GenAI Usage
+### GenAI Usage 🤖
 
 ChatGPT was used to assist with:
 
 - Debugging socket communication issues and understanding error messages
 
-- Assisting with the design and refinement of the terminal UI using the rich library
+- Assisting with the design and refinement of the GUI using tkinter
 
 - Suggesting improvements for code structure and organization
 
@@ -223,12 +223,12 @@ ChatGPT was used to assist with:
 
 - Drafting example usage steps and command summaries
 
-### References
+### References 📖
 
 - Python Socket Programming Documentation
 
 - Python threading module documentation
 
-- rich library documentation
+- tkinter module documentation (https://docs.python.org/3/library/tkinter.html)
 
 - Notes from CMPT 371
