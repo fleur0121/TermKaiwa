@@ -185,7 +185,7 @@ Some environments may not have tkinter available, configured or may not support 
 
 ## Video Demo 🎥
 
-(Add your video link here)
+https://discord.com/channels/@me/1419908037145133088/1491325410896773240
 
 ## Repository Structure 📁
 
