@@ -22,6 +22,15 @@ dm_history = {}
 clients_lock = threading.Lock()
 
 
+def frame_message(message):
+    """
+    Add a trailing newline so clients can safely separate TCP messages.
+    """
+    if message.endswith("\n"):
+        return message
+    return message + "\n"
+
+
 def send_to_client(client_socket, message):
     """
     # Description
@@ -36,7 +45,7 @@ def send_to_client(client_socket, message):
     (e.g. the client disconnected)
     """
     try:
-        client_socket.sendall(message.encode())
+        client_socket.sendall(frame_message(message).encode())
         return True
     except:
         return False
@@ -60,7 +69,7 @@ def broadcast(message, exclude_client=None):
                 continue
 
             try:
-                client_socket.sendall(message.encode())
+                client_socket.sendall(frame_message(message).encode())
             except:
                 disconnected_clients.append(client_socket)
 
@@ -128,7 +137,7 @@ def send_help(client_socket):
         "/dm <username> <msg>    -> send a private message\n"
         "/dm <username>          -> show last 15 DMs\n"
         "/help                   -> show commands\n"
-        "/quit                   -> leave the chat"
+        "/quit                   -> leave the chat\n"
     )
     send_to_client(client_socket, help_text)
 
@@ -170,7 +179,7 @@ def broadcast_room(message, room_name, exclude_client=None):
             continue
 
         try:
-            client_socket.sendall(message.encode())
+            client_socket.sendall(frame_message(message).encode())
         except:
             disconnected_clients.append(client_socket)
 
@@ -426,16 +435,11 @@ def handle_client(client_socket, client_address, secret_password):
 
         print(f"[CONNECTED] {username} joined from {client_address}")
         send_to_client(client_socket, f"[SERVER] Welcome, {username}!")
-        send_help(client_socket)
         broadcast(f"*** {username} joined the chat ***", exclude_client=None)
 
         public_history = get_room_history("public")
         if public_history:
-            send_to_client(
-                client_socket,
-                "[SERVER] Last 15 public messages:\n"
-                + "\n".join(public_history),
-            )
+            send_to_client(client_socket, "\n".join(public_history))
 
         while True:
             data = client_socket.recv(BUFFER_SIZE)
@@ -488,11 +492,7 @@ def handle_client(client_socket, client_address, secret_password):
                 )
                 secret_history = get_room_history("secret")
                 if secret_history:
-                    send_to_client(
-                        client_socket,
-                        "[SERVER] Last 15 secret messages:\n"
-                        + "\n".join(secret_history),
-                    )
+                    send_to_client(client_socket, "\n".join(secret_history))
                 broadcast_room(
                     f"*** {username} joined the secret room ***",
                     "secret",
